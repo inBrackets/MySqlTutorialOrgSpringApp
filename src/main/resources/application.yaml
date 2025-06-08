@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: FlywayMigrations
+  datasource:
+    url: jdbc:mysql://localhost:3306/custom_queries?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    show-sql: true
