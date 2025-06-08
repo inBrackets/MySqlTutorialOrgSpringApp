@@ -1,28 +1,28 @@
 /* Create the tables */
 CREATE TABLE productlines (
-                              productLine varchar(50),
-                              textDescription varchar(4000) DEFAULT NULL,
-                              htmlDescription mediumtext,
+                              product_line varchar(50),
+                              text_description varchar(4000) DEFAULT NULL,
+                              html_description mediumtext,
                               image mediumblob,
-                              PRIMARY KEY (productLine)
+                              PRIMARY KEY (product_line)
 );
 
 CREATE TABLE products (
-                          productCode varchar(15),
-                          productName varchar(70) NOT NULL,
-                          productLine varchar(50) NOT NULL,
-                          productScale varchar(10) NOT NULL,
-                          productVendor varchar(50) NOT NULL,
-                          productDescription text NOT NULL,
-                          quantityInStock smallint(6) NOT NULL,
-                          buyPrice decimal(10,2) NOT NULL,
-                          MSRP decimal(10,2) NOT NULL,
-                          PRIMARY KEY (productCode),
-                          FOREIGN KEY (productLine) REFERENCES productlines (productLine)
+                          product_code varchar(15),
+                          product_name varchar(70) NOT NULL,
+                          product_line varchar(50) NOT NULL,
+                          product_scale varchar(10) NOT NULL,
+                          product_vendor varchar(50) NOT NULL,
+                          product_description text NOT NULL,
+                          quantity_in_stock smallint(6) NOT NULL,
+                          buy_price decimal(10,2) NOT NULL,
+                          msrp decimal(10,2) NOT NULL,
+                          PRIMARY KEY (product_code),
+                          FOREIGN KEY (product_line) REFERENCES productlines (product_line)
 );
 
 CREATE TABLE offices (
-                         officeCode varchar(10),
+                         office_code varchar(10),
                          city varchar(50) NOT NULL,
                          phone varchar(50) NOT NULL,
                          address_line1 varchar(50) NOT NULL,
@@ -31,21 +31,21 @@ CREATE TABLE offices (
                          country varchar(50) NOT NULL,
                          postal_code varchar(15) NOT NULL,
                          territory varchar(10) NOT NULL,
-                         PRIMARY KEY (officeCode)
+                         PRIMARY KEY (office_code)
 );
 
 CREATE TABLE employees (
-                           employeeNumber int,
-                           lastName varchar(50) NOT NULL,
-                           firstName varchar(50) NOT NULL,
+                           employee_number int,
+                           last_name varchar(50) NOT NULL,
+                           first_name varchar(50) NOT NULL,
                            extension varchar(10) NOT NULL,
                            email varchar(100) NOT NULL,
-                           officeCode varchar(10) NOT NULL,
-                           reportsTo int DEFAULT NULL,
-                           jobTitle varchar(50) NOT NULL,
-                           PRIMARY KEY (employeeNumber),
-                           FOREIGN KEY (reportsTo) REFERENCES employees (employeeNumber),
-                           FOREIGN KEY (officeCode) REFERENCES offices (officeCode)
+                           office_code varchar(10) NOT NULL,
+                           reports_to int DEFAULT NULL,
+                           job_title varchar(50) NOT NULL,
+                           PRIMARY KEY (employee_number),
+                           FOREIGN KEY (reports_to) REFERENCES employees (employee_number),
+                           FOREIGN KEY (office_code) REFERENCES offices (office_code)
 );
 
 CREATE TABLE customers (
@@ -63,37 +63,37 @@ CREATE TABLE customers (
                            sales_rep_employee_number int DEFAULT NULL,
                            credit_limit decimal(10,2) DEFAULT NULL,
                            PRIMARY KEY (customer_number),
-                           FOREIGN KEY (sales_rep_employee_number) REFERENCES employees (employeeNumber)
+                           FOREIGN KEY (sales_rep_employee_number) REFERENCES employees (employee_number)
 );
 
 CREATE TABLE payments (
                           customer_number int,
-                          checkNumber varchar(50) NOT NULL,
-                          paymentDate date NOT NULL,
+                          check_number varchar(50) NOT NULL,
+                          payment_date date NOT NULL,
                           amount decimal(10,2) NOT NULL,
-                          PRIMARY KEY (customer_number,checkNumber),
+                          PRIMARY KEY (customer_number,check_number),
                           FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orders (
-                        orderNumber int,
-                        orderDate date NOT NULL,
-                        requiredDate date NOT NULL,
-                        shippedDate date DEFAULT NULL,
+                        order_number int,
+                        order_date date NOT NULL,
+                        required_date date NOT NULL,
+                        shipped_date date DEFAULT NULL,
                         status varchar(15) NOT NULL,
                         comments text,
                         customer_number int NOT NULL,
-                        PRIMARY KEY (orderNumber),
+                        PRIMARY KEY (order_number),
                         FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orderdetails (
-                              orderNumber int,
-                              productCode varchar(15) NOT NULL,
-                              quantityOrdered int NOT NULL,
-                              priceEach decimal(10,2) NOT NULL,
-                              orderLineNumber smallint(6) NOT NULL,
-                              PRIMARY KEY (orderNumber,productCode),
-                              FOREIGN KEY (orderNumber) REFERENCES orders (orderNumber),
-                              FOREIGN KEY (productCode) REFERENCES products (productCode)
+                              order_number int,
+                              product_code varchar(15) NOT NULL,
+                              quantity_ordered int NOT NULL,
+                              price_each decimal(10,2) NOT NULL,
+                              order_line_number smallint(6) NOT NULL,
+                              PRIMARY KEY (order_number,product_code),
+                              FOREIGN KEY (order_number) REFERENCES orders (order_number),
+                              FOREIGN KEY (product_code) REFERENCES products (product_code)
 );
