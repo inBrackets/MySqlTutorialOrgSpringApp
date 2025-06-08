@@ -48,9 +48,6 @@ public class OrderEntity {
     @Column(name = "comments")
     private String comments;
 
-//    @Column(name = "customer_number")
-//    private int customerNumber;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_number")
     @ToString.Exclude

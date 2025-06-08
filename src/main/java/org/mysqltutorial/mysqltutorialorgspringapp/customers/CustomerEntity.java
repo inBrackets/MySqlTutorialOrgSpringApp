@@ -35,13 +35,13 @@ public class CustomerEntity {
     private int customerNumber;
 
     @Column(name = "customer_name")
-    private String customer_name;
+    private String customerName;
 
     @Column(name = "contact_last_name")
-    private String contact_last_name;
+    private String contactLastName;
 
     @Column(name = "contact_first_name")
-    private String contact_first_name;
+    private String contactFirstName;
 
     @Column(name = "phone")
     private String phone;
@@ -56,16 +56,16 @@ public class CustomerEntity {
     private String city;
 
     @Column(name = "postal_code")
-    private String postal_code;
+    private String postalCode;
 
     @Column(name = "country")
     private String country;
 
     @Column(name = "sales_rep_employee_number")
-    Integer sales_rep_employee_number;
+    Integer salesRepEmployeeNumber;
 
     @Column(name = "credit_limit")
-    private BigDecimal credit_limit;
+    private BigDecimal creditLimit;
 
     @OneToMany(mappedBy = "customer")
     @Builder.Default
