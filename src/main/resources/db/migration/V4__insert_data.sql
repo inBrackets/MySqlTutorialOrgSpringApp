@@ -1,5 +1,5 @@
 /* Inserting data  */
-insert into productlines(productLine, text_description, html_description, image)
+insert into productlines(product_line, text_description, html_description, image)
 values ('Classic Cars',
         'Attention car enthusiasts: Make your wildest car ownership dreams come true. Whether you are looking for classic muscle cars, dream sports cars or movie-inspired miniatures, you will find great choices in this category. These replicas feature superb attention to detail and craftsmanship and offer features such as working steering system, opening forward compartment, opening rear trunk with removable spare wheel, 4-wheel independent spring suspension, and so on. The models range in size from 1:10 to 1:24 scale and include numerous limited edition and several out-of-production vehicles. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.',
         NULL, NULL),
@@ -22,7 +22,7 @@ values ('Classic Cars',
         'Our Vintage Car models realistically portray automobiles produced from the early 1900s through the 1940s. Materials used include Bakelite, diecast, plastic and wood. Most of the replicas are in the 1:18 and 1:24 scale sizes, which provide the optimum in detail and accuracy. Prices range from $30.00 up to $180.00 for some special limited edition replicas. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.',
         NULL, NULL);
 
-insert into products(product_code, product_name, productLine, product_scale, product_vendor, product_description,
+insert into products(product_code, product_name, product_line, product_scale, product_vendor, product_description,
                      quantity_in_stock, buy_price, msrp)
 values ('S10_1678', '1969 Harley Davidson Ultimate Chopper', 'Motorcycles', '1:10', 'Min Lin Diecast',
         'This replica features working kickstand, front suspension, gear-shift lever, footbrake lever, drive chain, wheels and steering. All parts are particularly delicate due to their precise scale and require special care and attention.',
