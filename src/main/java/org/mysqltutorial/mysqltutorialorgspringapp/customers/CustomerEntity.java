@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,8 +13,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderEntity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -62,5 +66,9 @@ public class CustomerEntity {
 
     @Column(name = "credit_limit")
     private BigDecimal credit_limit;
+
+    @OneToMany(mappedBy = "customer")
+    @Builder.Default
+    private List<OrderEntity> orders = new ArrayList<OrderEntity>();
 
 }

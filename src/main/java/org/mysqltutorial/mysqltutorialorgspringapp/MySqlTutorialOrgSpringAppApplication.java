@@ -1,6 +1,7 @@
 package org.mysqltutorial.mysqltutorialorgspringapp;
 
 import org.mysqltutorial.mysqltutorialorgspringapp.customers.CustomerService;
+import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -11,7 +12,9 @@ public class MySqlTutorialOrgSpringAppApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(MySqlTutorialOrgSpringAppApplication.class, args);
         CustomerService customerService = context.getBean(CustomerService.class);
-        customerService.printAllCustomers();
+//        customerService.printAllCustomers();
+        OrderService orderService = context.getBean(OrderService.class);
+        orderService.printAllOrders();
     }
 
 }
