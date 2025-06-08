@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Builder
 @Entity
 @Table(name = "customers")
@@ -62,21 +63,4 @@ public class CustomerEntity {
     @Column(name = "credit_limit")
     private BigDecimal credit_limit;
 
-    @Override
-    public String toString() {
-        return "CustomerEntity{" +
-                "customerNumber=" + customerNumber +
-                ", customer_name='" + customer_name + '\'' +
-                ", contact_last_name='" + contact_last_name + '\'' +
-                ", contact_first_name='" + contact_first_name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", addressLine1='" + addressLine1 + '\'' +
-                ", addressLine2='" + addressLine2 + '\'' +
-                ", city='" + city + '\'' +
-                ", postal_code='" + postal_code + '\'' +
-                ", country='" + country + '\'' +
-                ", sales_rep_employee_number=" + sales_rep_employee_number +
-                ", credit_limit=" + credit_limit +
-                '}';
-    }
 }

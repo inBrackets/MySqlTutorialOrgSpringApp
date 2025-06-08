@@ -3,13 +3,10 @@ package org.mysqltutorial.mysqltutorialorgspringapp.customers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-//@AllArgsConstructor
 @Service
+@AllArgsConstructor
 public class CustomerService {
 
-    public CustomerService(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
     private CustomerRepository customerRepository;
 
     public Iterable<CustomerEntity> getAllCustomers() {
