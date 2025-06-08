@@ -1,8 +1,8 @@
 spring:
   application:
-    name: FlywayMigrations
+    name: MySqlTutorialOrgSpringApp
   datasource:
-    url: jdbc:mysql://localhost:3306/custom_queries?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/mysqltutorialorg_db?createDatabaseIfNotExist=true
     username: root
     password: root
   jpa:
