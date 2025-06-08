@@ -331,7 +331,7 @@ values ('S10_1678', '1969 Harley Davidson Ultimate Chopper', 'Motorcycles', '1:1
         'Measures 38 inches Long x 33 3/4 inches High. Includes a stand.\r\nMany extras including rigging, long boats, pilot house, anchors, etc. Comes with 2 masts, all square-rigged',
         414, '33.30', '54.60');
 
-insert into offices(officeCode, city, phone, addressLine1, addressLine2, state, country, postalCode, territory)
+insert into offices(officeCode, city, phone, address_line1, address_line2, state, country, postal_code, territory)
 values ('1', 'San Francisco', '+1 650 219 4782', '100 Market Street', 'Suite 300', 'CA', 'USA', '94080', 'NA'),
        ('2', 'Boston', '+1 215 837 0825', '1550 Court Place', 'Suite 102', 'MA', 'USA', '02107', 'NA'),
        ('3', 'NYC', '+1 212 555 3000', '523 East 53rd Street', 'apt. 5A', 'NY', 'USA', '10022', 'NA'),
@@ -365,8 +365,8 @@ values (1002, 'Murphy', 'Diane', 'x5800', 'dmurphy@classicmodelcars.com', '1', N
        (1625, 'Kato', 'Yoshimi', 'x102', 'ykato@classicmodelcars.com', '5', 1621, 'Sales Rep'),
        (1702, 'Gerard', 'Martin', 'x2312', 'mgerard@classicmodelcars.com', '4', 1102, 'Sales Rep');
 
-insert into customers(customerNumber, customerName, contactLastName, contactFirstName, phone, addressLine1,
-                      addressLine2, city, state, postalCode, country, salesRepEmployeeNumber, creditLimit)
+insert into customers(customer_number, customer_name, contact_last_name, contact_first_name, phone, address_line1,
+                      address_line2, city, state, postal_code, country, sales_rep_employee_number, credit_limit)
 values (103, 'Atelier graphique', 'Schmitt', 'Carine ', '40.32.2555', '54, rue Royale', NULL, 'Nantes', NULL, '44000',
         'France', 1370, '21000.00'),
        (112, 'Signal Gift Stores', 'King', 'Jean', '7025551838', '8489 Strong St.', NULL, 'Las Vegas', 'NV', '83030',
@@ -612,7 +612,7 @@ values (103, 'Atelier graphique', 'Schmitt', 'Carine ', '40.32.2555', '54, rue R
        (496, 'Kelly\'s Gift Shop', 'Snowden', 'Tony', '+64 9 5555500', 'Arenales 1938 3\'A\'', NULL, 'Auckland  ', NULL,
         NULL, 'New Zealand', 1612, '110000.00');
 
-insert into orders(orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber)
+insert into orders(orderNumber, orderDate, requiredDate, shippedDate, status, comments, customer_number)
 values (10100, '2003-01-06', '2003-01-13', '2003-01-10', 'Shipped', NULL, 363),
        (10101, '2003-01-09', '2003-01-18', '2003-01-11', 'Shipped', 'Check on availability.', 128),
        (10102, '2003-01-10', '2003-01-18', '2003-01-14', 'Shipped', NULL, 181),
@@ -1034,7 +1034,7 @@ values (10100, '2003-01-06', '2003-01-13', '2003-01-10', 'Shipped', NULL, 363),
        (10424, '2005-05-31', '2005-06-08', NULL, 'In Process', NULL, 141),
        (10425, '2005-05-31', '2005-06-07', NULL, 'In Process', NULL, 119);
 
-insert into payments(customerNumber, checkNumber, paymentDate, amount)
+insert into payments(customer_number, checkNumber, paymentDate, amount)
 values (103, 'HQ336336', '2004-10-19', '6066.78'),
        (103, 'JM555205', '2003-06-05', '14571.44'),
        (103, 'OM314933', '2004-12-18', '1676.14'),

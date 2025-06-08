@@ -25,11 +25,11 @@ CREATE TABLE offices (
                          officeCode varchar(10),
                          city varchar(50) NOT NULL,
                          phone varchar(50) NOT NULL,
-                         addressLine1 varchar(50) NOT NULL,
-                         addressLine2 varchar(50) DEFAULT NULL,
+                         address_line1 varchar(50) NOT NULL,
+                         address_line2 varchar(50) DEFAULT NULL,
                          state varchar(50) DEFAULT NULL,
                          country varchar(50) NOT NULL,
-                         postalCode varchar(15) NOT NULL,
+                         postal_code varchar(15) NOT NULL,
                          territory varchar(10) NOT NULL,
                          PRIMARY KEY (officeCode)
 );
@@ -49,30 +49,30 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE customers (
-                           customerNumber int,
-                           customerName varchar(50) NOT NULL,
-                           contactLastName varchar(50) NOT NULL,
-                           contactFirstName varchar(50) NOT NULL,
+                           customer_number int,
+                           customer_name varchar(50) NOT NULL,
+                           contact_last_name varchar(50) NOT NULL,
+                           contact_first_name varchar(50) NOT NULL,
                            phone varchar(50) NOT NULL,
-                           addressLine1 varchar(50) NOT NULL,
-                           addressLine2 varchar(50) DEFAULT NULL,
+                           address_line1 varchar(50) NOT NULL,
+                           address_line2 varchar(50) DEFAULT NULL,
                            city varchar(50) NOT NULL,
                            state varchar(50) DEFAULT NULL,
-                           postalCode varchar(15) DEFAULT NULL,
+                           postal_code varchar(15) DEFAULT NULL,
                            country varchar(50) NOT NULL,
-                           salesRepEmployeeNumber int DEFAULT NULL,
-                           creditLimit decimal(10,2) DEFAULT NULL,
-                           PRIMARY KEY (customerNumber),
-                           FOREIGN KEY (salesRepEmployeeNumber) REFERENCES employees (employeeNumber)
+                           sales_rep_employee_number int DEFAULT NULL,
+                           credit_limit decimal(10,2) DEFAULT NULL,
+                           PRIMARY KEY (customer_number),
+                           FOREIGN KEY (sales_rep_employee_number) REFERENCES employees (employeeNumber)
 );
 
 CREATE TABLE payments (
-                          customerNumber int,
+                          customer_number int,
                           checkNumber varchar(50) NOT NULL,
                           paymentDate date NOT NULL,
                           amount decimal(10,2) NOT NULL,
-                          PRIMARY KEY (customerNumber,checkNumber),
-                          FOREIGN KEY (customerNumber) REFERENCES customers (customerNumber)
+                          PRIMARY KEY (customer_number,checkNumber),
+                          FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orders (
@@ -82,9 +82,9 @@ CREATE TABLE orders (
                         shippedDate date DEFAULT NULL,
                         status varchar(15) NOT NULL,
                         comments text,
-                        customerNumber int NOT NULL,
+                        customer_number int NOT NULL,
                         PRIMARY KEY (orderNumber),
-                        FOREIGN KEY (customerNumber) REFERENCES customers (customerNumber)
+                        FOREIGN KEY (customer_number) REFERENCES customers (customer_number)
 );
 
 CREATE TABLE orderdetails (
