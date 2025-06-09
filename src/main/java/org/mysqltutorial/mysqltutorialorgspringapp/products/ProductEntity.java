@@ -1,0 +1,56 @@
+package org.mysqltutorial.mysqltutorialorgspringapp.products;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.math.BigDecimal;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
+@Entity
+@Table(name = "products")
+public class ProductEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_code")
+    private String productCode;
+
+    @Column(name = "product_name")
+    private String productName;
+
+    @Column(name = "product_line")
+    private String productLine;
+
+    @Column(name = "product_scale")
+    private String productScale;
+
+    @Column(name = "product_vendor")
+    private String productVendor;
+
+    @Column(name = "product_description")
+    private String productDescription;
+
+    @Column(name = "quantity_in_stock")
+    private int quantityInStock;
+
+    @Column(name = "buy_price")
+    private BigDecimal buyPrice;
+
+    @Column(name = "msrp")
+    private BigDecimal msrp;
+}

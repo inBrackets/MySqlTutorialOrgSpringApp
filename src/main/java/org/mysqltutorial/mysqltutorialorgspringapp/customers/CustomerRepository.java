@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface CustomerRepository extends CrudRepository<CustomerEntity, Long> {
+interface CustomerRepository extends CrudRepository<CustomerEntity, Long> {
     List<CustomerEntity> findAllBy();
 }
