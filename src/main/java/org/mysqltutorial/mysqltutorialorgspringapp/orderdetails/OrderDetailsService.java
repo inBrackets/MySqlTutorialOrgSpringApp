@@ -14,4 +14,10 @@ public class OrderDetailsService {
             System.out.println(orderDetails.toString());
         }
     }
+
+    public void printAllProductNamesByOrderId(int orderId) {
+        for(String productName : orderDetailsRepository.findProductNamesByOrderNumber(orderId)) {
+            System.out.println(productName);
+        }
+    }
 }
