@@ -69,6 +69,7 @@ public class CustomerEntity {
 
     @OneToMany(mappedBy = "customer")
     @Builder.Default
+    @ToString.Exclude
     private List<OrderEntity> orders = new ArrayList<OrderEntity>();
 
 }

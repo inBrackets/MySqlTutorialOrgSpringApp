@@ -10,7 +10,7 @@ public class CustomerService {
     private CustomerRepository customerRepository;
 
     public Iterable<CustomerEntity> getAllCustomers() {
-        return customerRepository.findAllBy();
+        return customerRepository.findAll();
     }
 
     public void printAllCustomers() {
