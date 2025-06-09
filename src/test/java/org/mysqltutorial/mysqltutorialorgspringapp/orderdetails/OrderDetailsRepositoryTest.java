@@ -30,8 +30,7 @@ class OrderDetailsRepositoryTest {
 
     @Test
     void testFindAll() {
-        Iterable<OrderDetailsEntity> allOrderDetailsEntries = orderDetailsRepository.findAll();
-        assertThat(allOrderDetailsEntries).hasSize(2996);
+        assertThat(orderDetailsRepository.findAll()).hasSize(2996);
     }
 
     private static Stream<Arguments> provideArguments() {
