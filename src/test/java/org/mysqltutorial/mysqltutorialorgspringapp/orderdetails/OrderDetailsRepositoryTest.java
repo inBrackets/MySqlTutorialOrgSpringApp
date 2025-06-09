@@ -30,7 +30,8 @@ class OrderDetailsRepositoryTest {
 
     @Test
     void testFindAll() {
-        assertThat(orderDetailsRepository.findAll()).hasSize(2996);
+        assertThat(orderDetailsRepository.findAll())
+                .hasSize(2996);
     }
 
     private static Stream<Arguments> provideArguments() {

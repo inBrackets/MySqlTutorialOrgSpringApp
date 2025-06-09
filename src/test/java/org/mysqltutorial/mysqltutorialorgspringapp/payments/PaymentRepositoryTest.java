@@ -16,6 +16,7 @@ class PaymentRepositoryTest {
 
     @Test
     void testFindAll() {
-        assertThat(paymentRepository.findAll()).hasSize(273);
+        assertThat(paymentRepository.findAll())
+                .hasSize(273);
     }
 }
