@@ -1,5 +1,6 @@
 package org.mysqltutorial.mysqltutorialorgspringapp.orderdetails;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -9,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.stream.Stream;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -24,6 +26,12 @@ class OrderDetailsRepositoryTest {
     void findProductNamesByOrderNumber(int orderNumber, int expectedCountOfProducts) {
         long count = orderDetailsRepository.findProductNamesByOrderNumber(orderNumber).size();
         assertEquals(expectedCountOfProducts, count);
+    }
+
+    @Test
+    void testFindAll() {
+        Iterable<OrderDetailsEntity> allOrderDetailsEntries = orderDetailsRepository.findAll();
+        assertThat(allOrderDetailsEntries).hasSize(2996);
     }
 
     private static Stream<Arguments> provideArguments() {

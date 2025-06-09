@@ -3,6 +3,7 @@ package org.mysqltutorial.mysqltutorialorgspringapp;
 import org.mysqltutorial.mysqltutorialorgspringapp.customers.CustomerService;
 import org.mysqltutorial.mysqltutorialorgspringapp.orderdetails.OrderDetailsService;
 import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderService;
+import org.mysqltutorial.mysqltutorialorgspringapp.productlines.ProductLineService;
 import org.mysqltutorial.mysqltutorialorgspringapp.products.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +24,8 @@ public class MySqlTutorialOrgSpringAppApplication {
         // orderDetailsService.printAllProductNamesByOrderId(10100);
         ProductService productService = context.getBean(ProductService.class);
         // productService.printAllOrderDetails();
+        ProductLineService productLineService = context.getBean(ProductLineService.class);
+        productLineService.printAllProductLines();
     }
 
 }
