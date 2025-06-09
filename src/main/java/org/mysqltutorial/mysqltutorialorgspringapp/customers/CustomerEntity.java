@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderEntity;
+import org.mysqltutorial.mysqltutorialorgspringapp.payments.PaymentEntity;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -71,5 +72,9 @@ public class CustomerEntity {
     @Builder.Default
     @ToString.Exclude
     private List<OrderEntity> orders = new ArrayList<OrderEntity>();
+
+    @OneToMany(mappedBy = "customer")
+    @Builder.Default
+    private List<PaymentEntity> payments = new ArrayList<PaymentEntity>();
 
 }
