@@ -2,9 +2,12 @@ package org.mysqltutorial.mysqltutorialorgspringapp.customers;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -13,6 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.mysqltutorial.mysqltutorialorgspringapp.employees.EmployeeEntity;
 import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderEntity;
 import org.mysqltutorial.mysqltutorialorgspringapp.payments.PaymentEntity;
 
@@ -62,8 +66,10 @@ public class CustomerEntity {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_number")
-    Integer salesRepEmployeeNumber;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sales_rep_employee_number")
+    @ToString.Exclude
+    private EmployeeEntity employee;
 
     @Column(name = "credit_limit")
     private BigDecimal creditLimit;
@@ -75,6 +81,7 @@ public class CustomerEntity {
 
     @OneToMany(mappedBy = "customer")
     @Builder.Default
+    @ToString.Exclude
     private List<PaymentEntity> payments = new ArrayList<PaymentEntity>();
 
 }
