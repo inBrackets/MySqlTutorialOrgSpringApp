@@ -2,6 +2,7 @@ package org.mysqltutorial.mysqltutorialorgspringapp.products;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,8 +37,9 @@ public class ProductEntity {
     @Column(name = "product_name")
     private String productName;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_line", nullable = false)
+    @ToString.Exclude
     private ProductLineEntity productLine;
 
     @Column(name = "product_scale")

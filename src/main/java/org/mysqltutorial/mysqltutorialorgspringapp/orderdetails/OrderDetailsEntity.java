@@ -3,6 +3,7 @@ package org.mysqltutorial.mysqltutorialorgspringapp.orderdetails;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
@@ -31,14 +32,16 @@ public class OrderDetailsEntity {
     @EmbeddedId
     private OrderDetailsEntityEmbeddedId embeddedId;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("orderNumber")
     @JoinColumn(name = "order_number")
+    @ToString.Exclude
     private OrderEntity order;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("productCode")
     @JoinColumn(name = "product_code")
+    @ToString.Exclude
     private ProductEntity product;
 
     @Column(name = "quantity_ordered")
