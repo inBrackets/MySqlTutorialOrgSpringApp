@@ -1,6 +1,7 @@
 package org.mysqltutorial.mysqltutorialorgspringapp.orderdetails;
 
 import jakarta.persistence.EntityManagerFactory;
+import org.assertj.core.api.SoftAssertions;
 import org.hibernate.SessionFactory;
 import org.hibernate.stat.Statistics;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +15,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -29,6 +29,7 @@ class OrderDetailsRepositoryTest {
     private EntityManagerFactory entityManagerFactory;
 
     private Statistics stats;
+    private SoftAssertions softly;
 
     @BeforeEach
     public void beforeEach() {
@@ -36,6 +37,7 @@ class OrderDetailsRepositoryTest {
         sessionFactory.getStatistics().setStatisticsEnabled(true);
         stats = sessionFactory.getStatistics();
         stats.clear();
+        softly = new SoftAssertions();
     }
 
     @ParameterizedTest
@@ -47,11 +49,13 @@ class OrderDetailsRepositoryTest {
 
     @Test
     void testFindAll() {
-        assertThat(orderDetailsRepository.findAll())
+        softly.assertThat(orderDetailsRepository.findAll())
                 .hasSize(2996);
 
         long queryCount = stats.getPrepareStatementCount();
-        assertThat(queryCount).isEqualTo(1);
+        softly.assertThat(queryCount).isEqualTo(1);
+
+        softly.assertAll();
     }
 
     private static Stream<Arguments> provideArguments() {

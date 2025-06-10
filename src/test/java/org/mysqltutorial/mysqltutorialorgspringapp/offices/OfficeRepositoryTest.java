@@ -21,7 +21,7 @@ class OfficeRepositoryTest {
     private EntityManagerFactory entityManagerFactory;
 
     private Statistics stats;
-    private SoftAssertions softAssertions;
+    private SoftAssertions softly;
 
     @BeforeEach
     public void beforeEach() {
@@ -29,17 +29,17 @@ class OfficeRepositoryTest {
         sessionFactory.getStatistics().setStatisticsEnabled(true);
         stats = sessionFactory.getStatistics();
         stats.clear();
-        softAssertions = new SoftAssertions();
+        softly = new SoftAssertions();
     }
 
     @Test
     void testFindAll() {
-        softAssertions.assertThat(officeRepository.findAll())
+        softly.assertThat(officeRepository.findAll())
                 .hasSize(7);
 
         long queryCount = stats.getPrepareStatementCount();
-        softAssertions.assertThat(queryCount).isEqualTo(1);
+        softly.assertThat(queryCount).isEqualTo(1);
 
-        softAssertions.assertAll();
+        softly.assertAll();
     }
 }
