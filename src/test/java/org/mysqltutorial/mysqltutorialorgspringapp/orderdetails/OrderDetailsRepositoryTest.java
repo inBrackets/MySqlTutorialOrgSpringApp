@@ -1,5 +1,9 @@
 package org.mysqltutorial.mysqltutorialorgspringapp.orderdetails;
 
+import jakarta.persistence.EntityManagerFactory;
+import org.hibernate.SessionFactory;
+import org.hibernate.stat.Statistics;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -21,6 +25,19 @@ class OrderDetailsRepositoryTest {
     @Autowired
     private OrderDetailsRepository orderDetailsRepository;
 
+    @Autowired
+    private EntityManagerFactory entityManagerFactory;
+
+    private Statistics stats;
+
+    @BeforeEach
+    public void beforeEach() {
+        SessionFactory sessionFactory = entityManagerFactory.unwrap(SessionFactory.class);
+        sessionFactory.getStatistics().setStatisticsEnabled(true);
+        stats = sessionFactory.getStatistics();
+        stats.clear();
+    }
+
     @ParameterizedTest
     @MethodSource("provideArguments")
     void findProductNamesByOrderNumber(int orderNumber, int expectedCountOfProducts) {
@@ -32,6 +49,9 @@ class OrderDetailsRepositoryTest {
     void testFindAll() {
         assertThat(orderDetailsRepository.findAll())
                 .hasSize(2996);
+
+        long queryCount = stats.getPrepareStatementCount();
+        assertThat(queryCount).isEqualTo(1);
     }
 
     private static Stream<Arguments> provideArguments() {
