@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.mysqltutorial.mysqltutorialorgspringapp.customers.CustomerEntity;
+import org.mysqltutorial.mysqltutorialorgspringapp.offices.OfficeEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,8 +48,10 @@ public class EmployeeEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "office_code")
-    private String officeCode;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "office_code")
+    @ToString.Exclude
+    private OfficeEntity office;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reports_to")
