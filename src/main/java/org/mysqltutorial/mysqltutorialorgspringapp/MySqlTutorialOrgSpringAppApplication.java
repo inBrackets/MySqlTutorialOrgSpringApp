@@ -1,6 +1,7 @@
 package org.mysqltutorial.mysqltutorialorgspringapp;
 
 import org.mysqltutorial.mysqltutorialorgspringapp.customers.CustomerService;
+import org.mysqltutorial.mysqltutorialorgspringapp.employees.EmployeeService;
 import org.mysqltutorial.mysqltutorialorgspringapp.orderdetails.OrderDetailsService;
 import org.mysqltutorial.mysqltutorialorgspringapp.orders.OrderService;
 import org.mysqltutorial.mysqltutorialorgspringapp.productlines.ProductLineService;
@@ -26,6 +27,8 @@ public class MySqlTutorialOrgSpringAppApplication {
         // productService.printAllOrderDetails();
         ProductLineService productLineService = context.getBean(ProductLineService.class);
         // productLineService.printAllProductLines();
+        EmployeeService employeeService = context.getBean(EmployeeService.class);
+        employeeService.printAllEmployees();
     }
 
 }
