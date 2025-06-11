@@ -1,5 +1,6 @@
 package org.mysqltutorial.mysqltutorialorgspringapp.customers;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,5 +26,6 @@ public class CustomerDto {
     private String postalCode;
     private String country;
     private long salesRepEmployeeNumber;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "#0.00")
     private BigDecimal creditLimit;
 }
