@@ -36,8 +36,13 @@ class OrderRepositoryTest {
 
     @Test
     void testFindAll() {
-        assertThat(orderRepository.findAll())
+        softly.assertThat(orderRepository.findAll())
                 .hasSize(326);
+
+        long queryCount = stats.getPrepareStatementCount();
+        softly.assertThat(queryCount).isEqualTo(1);
+
+        softly.assertAll();
     }
 
     @Test
