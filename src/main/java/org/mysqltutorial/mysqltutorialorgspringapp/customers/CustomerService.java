@@ -3,18 +3,24 @@ package org.mysqltutorial.mysqltutorialorgspringapp.customers;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor
 public class CustomerService {
 
     private CustomerRepository customerRepository;
+    private CustomerMapper customerMapper;
 
-    public Iterable<CustomerEntity> getAllCustomers() {
-        return customerRepository.findAll();
+    public List<CustomerDto> getAllCustomers() {
+        return customerRepository.findAll().stream()
+                .map(customerMapper::toCustomerDto)
+                .collect(Collectors.toList());
     }
 
     public void printAllCustomers() {
-        for(CustomerEntity c : getAllCustomers()) {
+        for(CustomerDto c : getAllCustomers()) {
             System.out.println(c.toString());
         }
     }

@@ -59,6 +59,9 @@ public class CustomerEntity {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "state")
+    private String state;
+
     @Column(name = "postal_code")
     private String postalCode;
 
