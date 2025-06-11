@@ -34,7 +34,7 @@ public class EmployeeEntity {
     @Id
     @GeneratedValue
     @Column(name = "employee_number")
-    private int employeeNumber;
+    private long employeeNumber;
 
     @Column(name = "last_name")
     private String lastName;

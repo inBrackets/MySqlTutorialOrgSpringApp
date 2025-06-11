@@ -42,7 +42,7 @@ class OrderDetailsRepositoryTest {
 
     @ParameterizedTest
     @MethodSource("provideArguments")
-    void findProductNamesByOrderNumber(int orderNumber, int expectedCountOfProducts) {
+    void findProductNamesByOrderNumber(long orderNumber, int expectedCountOfProducts) {
         long count = orderDetailsRepository.findProductNamesByOrderNumber(orderNumber).size();
         assertEquals(expectedCountOfProducts, count);
     }

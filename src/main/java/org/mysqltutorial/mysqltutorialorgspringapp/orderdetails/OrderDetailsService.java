@@ -15,7 +15,7 @@ public class OrderDetailsService {
         }
     }
 
-    public void printAllProductNamesByOrderId(int orderId) {
+    public void printAllProductNamesByOrderId(long orderId) {
         for(String productName : orderDetailsRepository.findProductNamesByOrderNumber(orderId)) {
             System.out.println(productName);
         }

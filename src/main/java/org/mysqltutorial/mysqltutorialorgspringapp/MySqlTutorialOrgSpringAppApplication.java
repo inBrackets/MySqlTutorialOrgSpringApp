@@ -25,7 +25,7 @@ public class MySqlTutorialOrgSpringAppApplication {
         ProductService productService = context.getBean(ProductService.class);
         // productService.printAllOrderDetails();
         ProductLineService productLineService = context.getBean(ProductLineService.class);
-        productLineService.printAllProductLines();
+        // productLineService.printAllProductLines();
     }
 
 }

@@ -9,7 +9,7 @@ import java.io.Serializable;
 class OrderDetailsEntityEmbeddedId implements Serializable {
 
     @Column(name = "order_number")
-    private int orderNumber;
+    private long orderNumber;
 
     @Column(name = "product_code")
     private String productCode;

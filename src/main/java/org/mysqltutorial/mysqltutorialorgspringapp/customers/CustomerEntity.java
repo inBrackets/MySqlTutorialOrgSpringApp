@@ -36,7 +36,7 @@ public class CustomerEntity {
     @Id
     @GeneratedValue
     @Column(name = "customer_number")
-    private int customerNumber;
+    private long customerNumber;
 
     @Column(name = "customer_name")
     private String customerName;

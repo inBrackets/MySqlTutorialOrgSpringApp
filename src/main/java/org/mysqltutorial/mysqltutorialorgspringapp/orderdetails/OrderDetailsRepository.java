@@ -21,5 +21,5 @@ interface OrderDetailsRepository extends CrudRepository<OrderDetailsEntity, Long
                     JOIN od.order o
                     WHERE o.orderNumber = :orderNumber
             """)
-    List<String> findProductNamesByOrderNumber(@Param("orderNumber") int orderNumber);
+    List<String> findProductNamesByOrderNumber(@Param("orderNumber") long orderNumber);
 }

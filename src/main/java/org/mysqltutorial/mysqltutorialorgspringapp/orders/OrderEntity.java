@@ -31,7 +31,7 @@ public class OrderEntity {
     @Id
     @GeneratedValue
     @Column(name = "order_number")
-    private int orderNumber;
+    private long orderNumber;
 
     @Column(name = "order_date")
     private Date orderDate;
