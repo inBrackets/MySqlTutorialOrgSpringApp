@@ -56,6 +56,7 @@ public class OfficeEntity {
     private String territory;
 
     @OneToMany(mappedBy = "office")
+    @ToString.Exclude
     private List<EmployeeEntity> employees;
 
 }
