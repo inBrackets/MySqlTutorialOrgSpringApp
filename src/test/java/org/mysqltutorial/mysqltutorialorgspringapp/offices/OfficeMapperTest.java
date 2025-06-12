@@ -12,7 +12,7 @@ class OfficeMapperTest {
     @Test
     void testToOfficeDto() {
 
-        OfficeEntity entity = OfficeEntity.builder()
+        OfficeEntity office = OfficeEntity.builder()
                 .officeCode("1")
                 .city("San Francisco")
                 .phone("+1 650 219 4782")
@@ -24,17 +24,17 @@ class OfficeMapperTest {
                 .territory("NA")
                 .build();
 
-        OfficeDto dto = mapper.toOfficeDto(entity);
+        OfficeDto dto = mapper.toOfficeDto(office);
 
         softly.assertThat(dto).isNotNull();
-        softly.assertThat(dto.getOfficeCode()).isEqualTo(entity.getOfficeCode());
-        softly.assertThat(dto.getCity()).isEqualTo(entity.getCity());
-        softly.assertThat(dto.getPhone()).isEqualTo(entity.getPhone());
-        softly.assertThat(dto.getAddressLine1()).isEqualTo(entity.getAddressLine1());
-        softly.assertThat(dto.getAddressLine2()).isEqualTo(entity.getAddressLine2());
-        softly.assertThat(dto.getState()).isEqualTo(entity.getState());
-        softly.assertThat(dto.getCountry()).isEqualTo(entity.getCountry());
-        softly.assertThat(dto.getTerritory()).isEqualTo(entity.getTerritory());
+        softly.assertThat(dto.getOfficeCode()).isEqualTo(office.getOfficeCode());
+        softly.assertThat(dto.getCity()).isEqualTo(office.getCity());
+        softly.assertThat(dto.getPhone()).isEqualTo(office.getPhone());
+        softly.assertThat(dto.getAddressLine1()).isEqualTo(office.getAddressLine1());
+        softly.assertThat(dto.getAddressLine2()).isEqualTo(office.getAddressLine2());
+        softly.assertThat(dto.getState()).isEqualTo(office.getState());
+        softly.assertThat(dto.getCountry()).isEqualTo(office.getCountry());
+        softly.assertThat(dto.getTerritory()).isEqualTo(office.getTerritory());
 
         softly.assertAll();
     }
