@@ -22,7 +22,7 @@ public class MySqlTutorialOrgSpringAppApplication {
         // orderService.printAllOrders();
         // orderService.printAllOrdersByCustomer(103);
         OrderDetailsService orderDetailsService = context.getBean(OrderDetailsService.class);
-        // orderDetailsService.printAllOrderDetails();
+        orderDetailsService.printAllOrderDetails();
         // orderDetailsService.printAllProductNamesByOrderId(10100);
         ProductService productService = context.getBean(ProductService.class);
         // productService.printAllOrderDetails();
@@ -31,7 +31,7 @@ public class MySqlTutorialOrgSpringAppApplication {
         EmployeeService employeeService = context.getBean(EmployeeService.class);
         // employeeService.printAllEmployees();
         OfficeService officeService = context.getBean(OfficeService.class);
-        officeService.printAllOffices();
+        // officeService.printAllOffices();
     }
 
 }
