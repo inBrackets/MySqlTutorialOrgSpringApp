@@ -1,12 +1,14 @@
 package org.mysqltutorial.mysqltutorialorgspringapp.products;
 
 import org.springframework.data.jpa.repository.EntityGraph;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-interface ProductRepository extends CrudRepository<ProductEntity, Long> {
+import java.util.List;
 
-    @EntityGraph(attributePaths = "productLine")  // prevent the n+1 problem
-    Iterable<ProductEntity> findAll();
+@Repository
+interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+
+    @EntityGraph(attributePaths = "productLine") // prevent the n+1 problem
+    List<ProductEntity> findAll();
 }

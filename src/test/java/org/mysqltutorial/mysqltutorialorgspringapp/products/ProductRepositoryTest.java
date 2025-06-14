@@ -40,6 +40,8 @@ class ProductRepositoryTest {
         long queryCount = stats.getPrepareStatementCount();
         softly.assertThat(queryCount).isEqualTo(1);
 
+        productRepository.findAll().forEach(System.out::println);
+
         softly.assertAll();
     }
 }

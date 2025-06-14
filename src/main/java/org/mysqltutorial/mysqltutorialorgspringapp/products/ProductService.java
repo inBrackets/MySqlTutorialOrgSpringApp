@@ -3,15 +3,18 @@ package org.mysqltutorial.mysqltutorialorgspringapp.products;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ProductService {
 
     private ProductRepository productRepository;
+    private ProductMapper productMapper;
 
-    public void printAllOrderDetails() {
-        for (ProductEntity product : productRepository.findAll()) {
-            System.out.println(product.toString());
-        }
+    public List<ProductDto> getAllProducts() {
+        return productRepository.findAll()
+                .stream().map(productMapper::toProductDto)
+                .toList();
     }
 }
