@@ -3,15 +3,18 @@ package org.mysqltutorial.mysqltutorialorgspringapp.productlines;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class ProductLineService {
 
     private ProductLineRepository productLineRepository;
+    private ProductLineMapper productLineMapper;
 
-    public void printAllProductLines() {
-        for(ProductLineEntity productLineEntity : productLineRepository.findAll()) {
-            System.out.println(productLineEntity);
-        }
+    public List<ProductLineDto> getAllProductLines() {
+        return productLineRepository.findAll()
+                .stream().map(productLineMapper::toProductLineDto)
+                .toList();
     }
 }
