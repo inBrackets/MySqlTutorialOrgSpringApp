@@ -42,4 +42,15 @@ class PaymentRepositoryTest {
 
         softly.assertAll();
     }
+
+    @Test
+    void findAllTotalPaymentsGroupedByDate() {
+        softly.assertThat(paymentRepository.findAllTotalPaymentsGroupedByDate())
+                .hasSize(232);
+
+        long queryCount = stats.getPrepareStatementCount();
+        softly.assertThat(queryCount).isEqualTo(1);
+
+        softly.assertAll();
+    }
 }

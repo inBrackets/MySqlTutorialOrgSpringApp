@@ -17,4 +17,8 @@ public class PaymentService {
                 .stream().map(paymentMapper::toPaymentDto)
                 .toList();
     }
+
+    public List<PaymentAmountsByDateDto> getSumOfAllPaymentsAmountsGroupedByDate() {
+        return paymentRepository.findAllTotalPaymentsGroupedByDate();
+    }
 }
