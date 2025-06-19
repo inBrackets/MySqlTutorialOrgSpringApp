@@ -40,23 +40,38 @@
 
       <div class="mb-3">
         <label for="fullName" class="form-label"><i class="fas fa-user me-2"></i>Full Name</label>
-        <input type="text" class="form-control" id="fullName" required>
+        <input type="text" #name="ngModel" name="fullname" [(ngModel)]="registerObj.fullName" class="form-control" id="fullName" required>
+        <div class="validation-message">
+          @if (name.errors?.['required']) {
+            <span class="text-danger">This is Required.</span>
+          }
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="signUpEmail" class="form-label"><i class="fas fa-envelope me-2"></i>Email</label>
-        <input type="email" class="form-control" id="signUpEmail" required>
+        <input type="email" #email="ngModel" name="email" [(ngModel)]="registerObj.emailId" class="form-control" id="signUpEmail" required>
+        <div class="validation-message">
+          @if (email.errors?.['required']) {
+            <span class="text-danger">This is Required.</span>
+          }
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="signUpPassword" class="form-label"><i class="fas fa-lock me-2"></i>Password</label>
-        <input type="password" class="form-control" id="signUpPassword" required>
+        <input type="password" #pwd="ngModel" [(ngModel)]="registerObj.password" class="form-control" id="signUpPassword" required>
+        <div class="validation-message">
+          @if (pwd.errors?.['required']) {
+            <span class="text-danger">This is Required.</span>
+          }
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label for="confirmPassword" class="form-label"><i class="fas fa-lock me-2"></i>Confirm Password</label>
-        <input type="password" class="form-control" id="confirmPassword" required>
-      </div>
+<!--      <div class="mb-3">-->
+<!--        <label for="confirmPassword" class="form-label"><i class="fas fa-lock me-2"></i>Confirm Password</label>-->
+<!--        <input type="password" class="form-control" id="confirmPassword" required>-->
+<!--      </div>-->
 
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="termsCheck" required>
