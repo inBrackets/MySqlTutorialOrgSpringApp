@@ -3,6 +3,7 @@ import {NgClass} from '@angular/common';
 import {LoginModel, UserRegister} from '../../model/user.model';
 import {FormsModule} from '@angular/forms';
 import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent {
   loginObj: LoginModel = new LoginModel();
 
   userService = inject(UserService);
+  router = inject(Router);
 
   changeView(formName: string) {
     this.activeForm = formName;
@@ -34,9 +36,11 @@ export class LoginComponent {
 
   onLogin() {
     this.userService.onLogin(this.loginObj).subscribe((res:UserRegister) => {
-      alert("User Form, navigating inside")
+      alert("User Form, navigating inside");
+      localStorage.setItem('logData', JSON.stringify(res));
+      this.router.navigateByUrl("/dashboard")
     }, error => {
-      alert(error.error);
+      alert("Wrong username or password");
     })
   }
 }
