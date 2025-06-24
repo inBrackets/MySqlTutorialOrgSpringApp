@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <div class="card shadow-lg border-0 rounded-lg mt-5">
+        <div class="card-header">
+          <h3 class="text-center font-weight-light my-4" id="ModalHeader">{{ !isLoginFormDisplayed ? 'Sign up' : 'Log in' }}</h3></div>
+        <div class="card-body">
+          <form id="LoginForm" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)" [class.hidden]="!isLoginFormDisplayed">
+            <div class="form-group">
+              <label class="small mt-2" for="inputEmailAddressLogin">Email</label>
+              <input class="form-control py-2" id="inputEmailAddressLogin" name="emailId" type="email" placeholder="Enter email address" ngModel/>
+            </div>
+            <div class="form-group">
+              <label class="small mt-2" for="inputPasswordLogin">Password</label>
+              <input class="form-control py-2" id="inputPasswordLogin"  name="password" type="password" placeholder="Enter password" ngModel/>
+            </div>
+            <div class="form-group d-flex align-items-center justify-content-between mt-2 mb-0">
+              <button type="submit" class="btn btn-primary ms-auto">Login</button>
+            </div>
+          </form>
+
+          <form id="RegisterForm" #registerForm="ngForm" (ngSubmit)="onRegister(registerForm.value)" [class.hidden]="isLoginFormDisplayed">
+            <div class="form-group">
+              <label class="small mt-2" for="inputFullNameRegister">Full name</label>
+              <input class="form-control py-2" id="inputFullNameRegister" name="fullName" type="email" placeholder="Enter full name" ngModel/>
+            </div>
+            <div class="form-group">
+              <label class="small mt-2" for="inputEmailAddressRegister">Email</label>
+              <input class="form-control py-2" id="inputEmailAddressRegister" name="emailId" type="email" placeholder="Enter email address" ngModel/>
+            </div>
+            <div class="form-group">
+              <label class="small mt-2" for="inputPasswordRegister">Password</label>
+              <input class="form-control py-2" id="inputPasswordRegister" name="password" type="password" placeholder="Enter password" ngModel/>
+            </div>
+            <div class="form-group d-flex align-items-center justify-content-between mt-3 mb-0">
+              <button type="submit" class="btn btn-primary ms-auto">Sign Up</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer text-center">
+          <a class="small" style="cursor: pointer;" (click)="switchForm()">{{ isLoginFormDisplayed ? 'Need an account? Sign up!' : 'Have an account? Log in!' }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
