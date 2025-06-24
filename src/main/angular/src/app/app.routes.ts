@@ -2,8 +2,9 @@ import {Routes} from '@angular/router';
 
 import {LayoutAuthComponent} from '../components/auth/layout-auth/layout-auth.component';
 import {LoginComponent} from '../components/auth/login/login.component';
-import {LayoutComponent} from '../components/temp/layout/layout.component';
-import {DashboardComponent} from '../components/temp/dashboard/dashboard.component';
+import {LayoutComponent} from '../components/containers/layout/layout.component';
+import {AreaChartComponent} from '../components/dashboard/area-chart/area-chart.component';
+import {EmployeesComponent} from './components/employees/employees.component';
 
 export const routes: Routes = [
   {
@@ -22,12 +23,16 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'employees',
+    component: EmployeesComponent,
+  },
+  {
     path: '',
     component: LayoutComponent,
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: AreaChartComponent
       }
     ]
   }

@@ -19,7 +19,7 @@ import java.util.Date;
 public class PaymentAmountsByDateDto {
 
     @Id
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "MMM dd yyyy")
     private Date paymentDate;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "#0.00")
     private BigDecimal amount;

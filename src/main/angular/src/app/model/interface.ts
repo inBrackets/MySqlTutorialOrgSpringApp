@@ -8,3 +8,8 @@ export interface IEmployee {
   reportsTo: number,
   jobTitle: string
 }
+
+export interface IAmountByPaymentDate {
+  paymentDate: string,
+  amount: number
+}
