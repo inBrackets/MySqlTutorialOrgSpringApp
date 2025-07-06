@@ -75,9 +75,11 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -114,7 +116,7 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>10.20.1</version>
                 <configuration>
-                    <url>jdbc:mysql://localhost:3306/mysqltutorialorg_db?createDatabaseIfNotExist=true</url>
+                    <url>jdbc:mariadb://localhost:3306/classicmodels?createDatabaseIfNotExist=true</url>
                     <user>root</user>
                     <password>root</password>
                     <!-- activates plugin flyway:clean which cleans the schemas -->
@@ -123,7 +125,6 @@
             </plugin>
         </plugins>
     </build>
-
     <profiles>
         <profile>
             <id>with-angular</id>
@@ -154,7 +155,6 @@
                                     <arguments>install</arguments>
                                 </configuration>
                             </execution>
-
                             <execution>
                                 <id>npm build our Angular application ...</id>
                                 <goals>
@@ -170,7 +170,6 @@
                             <workingDirectory>src/main/angular</workingDirectory>
                         </configuration>
                     </plugin>
-
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-resources-plugin</artifactId>
@@ -193,11 +192,9 @@
                                 </configuration>
                             </execution>
                         </executions>
-
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-
 </project>
