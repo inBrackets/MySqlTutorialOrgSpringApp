@@ -90,14 +90,14 @@ jobs:
         if: always()
         continue-on-error: true
         with:
-          ref: allure-results
-          path: allure-results
+          ref: gh-pages
+          path: gh-pages
 
       - name: Build allure test report
         uses: simple-elf/allure-report-action@v1.10
         if: always()
         with:
-          gh_pages: allure-results
+          gh_pages: gh-pages
           allure_history: allure-history
           allure_results: build/allure-results
 
@@ -106,7 +106,7 @@ jobs:
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: allure-results
+          publish_branch: gh-pages
           publish_dir: allure-history
 
       # Create GitHub release for the tag and upload the JAR
