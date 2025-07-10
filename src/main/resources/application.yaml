@@ -1,9 +1,0 @@
-spring:
-  application:
-    name: MySqlTutorialOrgSpringApp
-  datasource:
-    url: jdbc:mariadb://localhost:3306/classicmodels?createDatabaseIfNotExist=true
-    username: root
-    password: root
-  jpa:
-    show-sql: true
