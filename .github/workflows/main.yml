@@ -107,3 +107,10 @@ jobs:
           asset_path: target/MySqlTutorialOrgSpringApp-0.0.1-SNAPSHOT.jar
           asset_name: ${{ env.REPO_NAME }}-${{ env.TAG_NAME }}.jar
           asset_content_type: application/java-archive
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/classes/static
+          publish_branch: gh-pages
