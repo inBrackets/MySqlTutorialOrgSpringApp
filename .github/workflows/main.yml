@@ -111,10 +111,14 @@ jobs:
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
+      - name: Install dependencies
+        working-directory: src/main/angular
+        run: npm ci
+
       # Rebuild the Angular Project for gh pages
       - name: Build Angular for gh-pages
         working-directory: src/main/angular
-        run: ng build --base-href "https://inBrackets.github.io/AngularGitHubPages"
+        run: ng build --configuration production --base-href="https://inBrackets.github.io/AngularGitHubPages"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
