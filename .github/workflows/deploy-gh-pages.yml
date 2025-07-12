@@ -24,7 +24,7 @@ jobs:
 
       - name: 🛠️ Build Angular App
         working-directory: src/main/angular
-        run: npm run build -- --configuration production --base-href /${{ REPO_NAME }}/
+        run: npm run build -- --configuration production --base-href "/${{ env.REPO_NAME }}/"
 
       - name: 👤 Set Git Identity
         run: |
