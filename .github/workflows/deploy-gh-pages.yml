@@ -24,7 +24,7 @@ jobs:
 
       - name: 🛠️ Build Angular App
         working-directory: src/main/angular
-        run: ng build --configuration production --base-href /MySqlTutorialOrgSpringApp/
+        run: npm run build -- --configuration production --base-href /MySqlTutorialOrgSpringApp/
 
       - name: 👤 Set Git Identity
         run: |
