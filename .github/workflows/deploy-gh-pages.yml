@@ -1,4 +1,4 @@
-name: Build and Release JAR
+name: Deploy to GitHub pages
 
 on:
   workflow_dispatch:
