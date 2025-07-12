@@ -40,4 +40,4 @@ jobs:
             --no-silent \
             --branch=gh-pages \
             --message="Auto-deployed from GitHub Actions 🚀" \
-            --repo=https://x-access-token:${GH_TOKEN}@github.com/inBrackets/${{ REPO_NAME }}.git
+            --repo=https://x-access-token:${GH_TOKEN}@github.com/inBrackets/MySqlTutorialOrgSpringApp.git
